@@ -43,13 +43,14 @@ class ArticlesController extends Controller
             'description' => 'required|string'
         ]);
 
-        Article::create([
+        $article = Article::create([
             'name' => $request->get('name'),
             'description' => $request->get('description')
         ]);
 
         return response()->json([
             'success' => true,
+            'data' => $article,
             'message' => 'Article added Successfully.'
         ]);
     }
